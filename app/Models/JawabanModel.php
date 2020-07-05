@@ -14,4 +14,15 @@ class JawabanModel {
         return $save;
     }
 
+    public static function findQuestionById($id) {
+        $item = DB::table('jawaban')->where('pertanyaan_id',$id)->get();
+        return $item;
+    }
+
+    public static function drop($id) {
+        $items = DB::table('jawaban')
+                ->where('pertanyaan_id',$id)
+                ->delete();
+        return $items;
+    }
 }
